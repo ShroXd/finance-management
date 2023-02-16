@@ -12,13 +12,13 @@ struct TotalCost: View {
         VStack {
             Text("Spent this week")
                 .font(.system(.title3, design: .rounded))
-                .foregroundColor(Color("secondGray"))
+                .foregroundColor(Color("SecondGray"))
             
             HStack(alignment: .lastTextBaseline) {
                 Text("¥")
                     .font(.system(size: 35, design: .rounded))
                     .baselineOffset(20)
-                    .foregroundColor(Color("secondGray"))
+                    .foregroundColor(Color("SecondGray"))
                 Text("300")
                     .font(.system(size: 65, design: .rounded))
                 Text(".23")
