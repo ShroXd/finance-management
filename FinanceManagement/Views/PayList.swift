@@ -21,6 +21,7 @@ struct PayList: View {
             }
             Divider()
             
+            // a thinking face
             PayItem()
             PayItem()
             PayItem()
