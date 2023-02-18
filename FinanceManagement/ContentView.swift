@@ -53,12 +53,24 @@ struct InboxView: View {
             .padding(.top, 45)
             .onTapGesture {
                 isSimpleStatisticsShow.toggle()
+                
+                let calendar = Calendar.current
+                let date = Date()
+
+                // Calculate start and end of the current year (or month with `.month`):
+                let interval = calendar.dateInterval(of: .month, for: date)! //change year it will no of days in a year , change it to month it will give no of days in a current month
+
+                // Compute difference in days:
+                let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
+                
+                print(days)
             }
             
             
             ScrollView {
                 PayList()
-                PayList()
+                
+                // TODO: ask load more?
             }
         }
     }
