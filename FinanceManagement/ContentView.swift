@@ -37,10 +37,29 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct InboxView: View {
+    
+    @State var isSimpleStatisticsShow = false
+    
     var body: some View {
         VStack {
-            TotalCost()
-            PayList()
+            
+            Group {
+                if isSimpleStatisticsShow {
+                    SimpleStatistics()
+                } else {
+                    TotalCost()
+                }
+            }
+            .padding(.top, 45)
+            .onTapGesture {
+                isSimpleStatisticsShow.toggle()
+            }
+            
+            
+            ScrollView {
+                PayList()
+                PayList()
+            }
         }
     }
 }

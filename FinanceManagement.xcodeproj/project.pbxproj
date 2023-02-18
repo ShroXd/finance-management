@@ -21,6 +21,7 @@
 		92BD08A2299E530F00BAFEC7 /* PayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A1299E530F00BAFEC7 /* PayList.swift */; };
 		92BD08A4299E582B00BAFEC7 /* PayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A3299E582B00BAFEC7 /* PayItem.swift */; };
 		92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A5299E5EB100BAFEC7 /* ContentView.swift */; };
+		92BD08AA29A0FA7E00BAFEC7 /* SimpleStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		92BD08A1299E530F00BAFEC7 /* PayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayList.swift; sourceTree = "<group>"; };
 		92BD08A3299E582B00BAFEC7 /* PayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayItem.swift; sourceTree = "<group>"; };
 		92BD08A5299E5EB100BAFEC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleStatistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				92BD089E299E424D00BAFEC7 /* TotalCost.swift */,
 				92BD08A1299E530F00BAFEC7 /* PayList.swift */,
 				92BD08A3299E582B00BAFEC7 /* PayItem.swift */,
+				92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				92BD0878299E3E2400BAFEC7 /* Persistence.swift in Sources */,
 				92BD0871299E3E2300BAFEC7 /* ContentViewBack.swift in Sources */,
+				92BD08AA29A0FA7E00BAFEC7 /* SimpleStatistics.swift in Sources */,
 				92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,
 				92BD087B299E3E2400BAFEC7 /* FinanceManagement.xcdatamodeld in Sources */,
