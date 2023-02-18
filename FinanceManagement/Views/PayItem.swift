@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct PayItem: View {
+    
+    @State var isPay = true
+    
+    @State var icon: String
+    @State var name: String
+    // TODO: implement a class to handle format
+    @State var time: String
+    // TODO: implement a class to handle currency
+    @State var money: String
+    @State var payment: String
+    
     var body: some View {
-//        RoundedRectangle(cornerRadius: 20)
-//            .fill(Color(.systemGray6))
-//            .frame(height: 80)
         HStack {
-            Text("🐈")
+            Text(icon)
                 .font(.system(.title))
                 .padding(.horizontal, 7)
             VStack(alignment: .leading, spacing: 3) {
-                Text("Pet")
+                Text(name)
                     .font(.system(.headline))
                     .fontWeight(.semibold)
-                Text("4:24 PM")
+                Text(time)
                     .font(.system(.footnote))
                     .foregroundColor(Color(.systemGray))
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
-                Text("$ 2.34")
+                Text(money)
                     .font(.system(.headline))
                     .fontWeight(.semibold)
-                Text("Alipay")
+                    .foregroundColor(Color(isPay ? "MainRed" : "MainBlue"))
+                Text(payment)
                     .font(.system(.footnote))
                     .foregroundColor(Color(.systemGray))
             }
@@ -42,6 +51,9 @@ struct PayItem: View {
 
 struct PayItem_Previews: PreviewProvider {
     static var previews: some View {
-        PayItem()
+        VStack {
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
+            PayItem(isPay: false, icon: "🐈", name: "cat", time: "23:00", money: "$ 3.22", payment: "Alipay")
+        }
     }
 }

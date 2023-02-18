@@ -24,7 +24,7 @@ struct ContentView: View {
             Text("Profile Tab")
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem {
-                    Image(systemName: "person.crop.circle")
+                    Image(systemName: "gearshape.fill")
                 }
         }
     }

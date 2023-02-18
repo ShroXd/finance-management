@@ -22,11 +22,11 @@ struct PayList: View {
             Divider()
             
             // a thinking face
-            PayItem()
-            PayItem()
-            PayItem()
-            PayItem()
-            PayItem()
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
+            PayItem(isPay: false, icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
         }
         .padding()
     }
