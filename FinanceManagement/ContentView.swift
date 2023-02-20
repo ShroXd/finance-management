@@ -43,18 +43,21 @@ struct InboxView: View {
     var body: some View {
         VStack {
             
-            Group {
-                if isSimpleStatisticsShow {
-                    SimpleStatistics()
-                } else {
-                    TotalCost()
-                }
-            }
-            .padding(.top, 45)
-            .onTapGesture {
-                isSimpleStatisticsShow.toggle()
-            }
+//            Group {
+//                if isSimpleStatisticsShow {
+//                    SimpleStatistics()
+//                } else {
+//                    TotalCost()
+//                }
+//            }
+//            .padding(.top, 45)
+//            .onTapGesture {
+//                isSimpleStatisticsShow.toggle()
+//            }
             
+            CashFlowGraph()
+                .padding(.top, 65)
+                .padding(.bottom, 45)
             
             ScrollView {
                 PayList()

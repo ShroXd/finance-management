@@ -7,36 +7,61 @@
 
 import SwiftUI
 
-struct CashFlowGraph: View {
-    var body: some View {
-        VStack {
-            Rectangle()
-                .frame(width: 45, height: 45)
-                .cornerRadius(8)
-                .foregroundColor(Color("MainBlue"))
-            Rectangle()
-                .frame(width: 45, height: 45)
-                .cornerRadius(8)
-                .foregroundColor(Color("MainRed"))
-        }
-    }
+func getNumOfFullColumns() -> [Int] {
+    let days = Date().getDaysOfCurrentMonth()
     
-    private func days() {
-        let calendar = Calendar.current
-        let date = Date()
+    var configuration = [Int](repeating: days <= 30 ? 5 : 6, count: 5)
+    
+    let digit = days % 10
+    configuration.append(digit < 5 ? digit : (digit - 5))
+    
+    return configuration
+}
 
-        // Calculate start and end of the current year (or month with `.month`):
-        let interval = calendar.dateInterval(of: .month, for: date)! //change year it will no of days in a year , change it to month it will give no of days in a current month
-
-        // Compute difference in days:
-        let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
-        
-        print(days)
+struct CashFlowGraph: View {
+    var currentMonth: String = Date().getCurrentMonth()
+    var nextMonth: String = Date().getNextMonth()
+    
+    var columns: [Int] = getNumOfFullColumns()
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                HStack(alignment: .top) {
+                    ForEach((0 ..< columns.count - 1), id: \.self) { idx in
+                        ColumnView(number: columns[idx], alignment: .leading)
+                    }
+                    
+                    ColumnView(number: columns.last!, alignment: .trailing)
+                }
+                
+                Text(currentMonth)
+                    .font(.system(.title2, design: .rounded))
+                    .foregroundColor(Color(.systemGray))
+            }
+        }
+        .padding(.leading, 35)
     }
 }
 
 struct CashFlowGraph_Previews: PreviewProvider {
     static var previews: some View {
         CashFlowGraph()
+    }
+}
+
+struct ColumnView: View {
+    var number: Int
+    var alignment: HorizontalAlignment
+    
+    var body: some View {
+        VStack(alignment: alignment) {
+            ForEach((0 ..< number), id: \.self) { _ in
+                Rectangle()
+                    .frame(width: 35, height: 35)
+                    .cornerRadius(8)
+                    .foregroundColor(Color("FirstGray"))
+            }
+        }
     }
 }
