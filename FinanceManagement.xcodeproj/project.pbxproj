@@ -22,6 +22,8 @@
 		92BD08A4299E582B00BAFEC7 /* PayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A3299E582B00BAFEC7 /* PayItem.swift */; };
 		92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A5299E5EB100BAFEC7 /* ContentView.swift */; };
 		92BD08AA29A0FA7E00BAFEC7 /* SimpleStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */; };
+		92BD08AC29A1AE8100BAFEC7 /* CashFlowGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08AB29A1AE8100BAFEC7 /* CashFlowGraph.swift */; };
+		92BD08AF29A36BCC00BAFEC7 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08AE29A36BCC00BAFEC7 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		92BD08A3299E582B00BAFEC7 /* PayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayItem.swift; sourceTree = "<group>"; };
 		92BD08A5299E5EB100BAFEC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleStatistics.swift; sourceTree = "<group>"; };
+		92BD08AB29A1AE8100BAFEC7 /* CashFlowGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowGraph.swift; sourceTree = "<group>"; };
+		92BD08AE29A36BCC00BAFEC7 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		92BD086D299E3E2300BAFEC7 /* FinanceManagement */ = {
 			isa = PBXGroup;
 			children = (
+				92BD08AD29A36BBB00BAFEC7 /* Extensions */,
 				92BD089D299E419800BAFEC7 /* Views */,
 				92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */,
 				92BD08A5299E5EB100BAFEC7 /* ContentView.swift */,
@@ -153,8 +158,17 @@
 				92BD08A1299E530F00BAFEC7 /* PayList.swift */,
 				92BD08A3299E582B00BAFEC7 /* PayItem.swift */,
 				92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */,
+				92BD08AB29A1AE8100BAFEC7 /* CashFlowGraph.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		92BD08AD29A36BBB00BAFEC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92BD08AE29A36BCC00BAFEC7 /* Date.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,8 +306,10 @@
 				92BD08AA29A0FA7E00BAFEC7 /* SimpleStatistics.swift in Sources */,
 				92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,
+				92BD08AC29A1AE8100BAFEC7 /* CashFlowGraph.swift in Sources */,
 				92BD087B299E3E2400BAFEC7 /* FinanceManagement.xcdatamodeld in Sources */,
 				92BD08A2299E530F00BAFEC7 /* PayList.swift in Sources */,
+				92BD08AF29A36BCC00BAFEC7 /* Date.swift in Sources */,
 				92BD089F299E424D00BAFEC7 /* TotalCost.swift in Sources */,
 				92BD08A4299E582B00BAFEC7 /* PayItem.swift in Sources */,
 			);
