@@ -36,11 +36,11 @@ struct CashFlowGraph: View {
                 }
                 
                 Text(currentMonth)
-                    .font(.system(.title2, design: .rounded))
+                    .font(.system(.footnote, design: .rounded))
                     .foregroundColor(Color(.systemGray))
+                    .padding(.leading, 4)
             }
         }
-        .padding(.leading, 35)
     }
 }
 
@@ -58,7 +58,7 @@ struct ColumnView: View {
         VStack(alignment: alignment) {
             ForEach((0 ..< number), id: \.self) { _ in
                 Rectangle()
-                    .frame(width: 35, height: 35)
+                    .frame(width: 30, height: 30)
                     .cornerRadius(8)
                     .foregroundColor(Color("FirstGray"))
             }

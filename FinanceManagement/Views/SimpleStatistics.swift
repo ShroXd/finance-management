@@ -9,21 +9,23 @@ import SwiftUI
 
 struct SimpleStatistics: View {
     var body: some View {
-        HStack(spacing: 42) {
+        HStack {
             VStack(alignment: .leading) {
-                Text("Pay")
-                    .font(.system(.title2, design: .rounded))
-                    .foregroundColor(Color("SecondGray"))
                 Text("$30.40")
-                    .font(.system(size: 40, design: .rounded))
+                    .font(.system(.title2, design: .rounded))
+                Text("Pay")
+                    .font(.system(.body, design: .rounded))
+                    .foregroundColor(Color(.systemGray))
             }
             
+            Spacer()
+            
             VStack(alignment: .leading) {
-                Text("Income")
-                    .font(.system(.title2, design: .rounded))
-                    .foregroundColor(Color("SecondGray"))
                 Text("$30.40")
-                    .font(.system(size: 40, design: .rounded))
+                    .font(.system(.title2, design: .rounded))
+                Text("Income")
+                    .font(.system(.body, design: .rounded))
+                    .foregroundColor(Color(.systemGray))
             }
         }
     }

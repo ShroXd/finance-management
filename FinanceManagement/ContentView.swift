@@ -41,29 +41,32 @@ struct InboxView: View {
     @State var isSimpleStatisticsShow = false
     
     var body: some View {
-        VStack {
-            
-//            Group {
-//                if isSimpleStatisticsShow {
-//                    SimpleStatistics()
-//                } else {
-//                    TotalCost()
-//                }
-//            }
-//            .padding(.top, 45)
-//            .onTapGesture {
-//                isSimpleStatisticsShow.toggle()
-//            }
-            
-            CashFlowGraph()
-                .padding(.top, 65)
-                .padding(.bottom, 45)
-            
+        VStack(spacing: 24) {
             ScrollView {
-                PayList()
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("$300.80")
+                            .font(.system(size: 42, design: .rounded))
+                            .fontWeight(.semibold)
+                        Text("Total spent this month")
+                            .font(.system(.callout, design: .rounded))
+                            .foregroundColor(Color(.systemGray))
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.top, 45)
+                .padding(.bottom, 12)
                 
+                CashFlowGraph()
+                    .padding(.bottom, 24)
+                
+                PayList()
                 // TODO: ask load more?
             }
+            
+            Spacer()
         }
+        .padding(.horizontal)
     }
 }

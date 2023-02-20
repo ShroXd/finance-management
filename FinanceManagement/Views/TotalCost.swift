@@ -10,20 +10,21 @@ import SwiftUI
 struct TotalCost: View {
     var body: some View {
         VStack {
-            Text("Spent this week")
+            Text("Spent this month")
                 .font(.system(.title3, design: .rounded))
                 .foregroundColor(Color("SecondGray"))
             
             HStack(alignment: .lastTextBaseline) {
                 Text("¥")
-                    .font(.system(size: 35, design: .rounded))
-                    .baselineOffset(20)
+                    .font(.system(.title3, design: .rounded))
+                    .baselineOffset(24)
                     .foregroundColor(Color("SecondGray"))
                 Text("300")
-                    .font(.system(size: 65, design: .rounded))
+                    .font(.system(size: 60, design: .rounded))
+                    .fontWeight(.semibold)
                 Text(".23")
-                    .font(.system(size: 35, design: .rounded))
-                    .baselineOffset(20)
+                    .font(.system(.title3, design: .rounded))
+                    .baselineOffset(24)
             }
         }
     }

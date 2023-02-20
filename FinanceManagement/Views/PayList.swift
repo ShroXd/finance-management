@@ -28,7 +28,6 @@ struct PayList: View {
             PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
             PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
         }
-        .padding()
     }
 }
 
