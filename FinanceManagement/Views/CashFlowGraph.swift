@@ -18,6 +18,19 @@ func getNumOfFullColumns() -> [Int] {
     return configuration
 }
 
+// TODO: temporary function
+func randomColor() -> String {
+    let num = Int.random(in: 1...99)
+    
+    if num < 33 {
+        return "MainRed"
+    } else if num < 66 {
+        return "MainBlue"
+    } else {
+        return "FirstGray"
+    }
+}
+
 struct CashFlowGraph: View {
     var currentMonth: String = Date().getCurrentMonth()
     var nextMonth: String = Date().getNextMonth()
@@ -60,7 +73,7 @@ struct ColumnView: View {
                 Rectangle()
                     .frame(width: 30, height: 30)
                     .cornerRadius(8)
-                    .foregroundColor(Color("FirstGray"))
+                    .foregroundColor(Color(randomColor()))
             }
         }
     }

@@ -42,7 +42,7 @@ struct InboxView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("$300.80")
