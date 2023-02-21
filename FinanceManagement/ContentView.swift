@@ -42,31 +42,73 @@ struct InboxView: View {
     
     var body: some View {
         VStack(spacing: 24) {
+            
+            //            RoundedRectangle(cornerRadius: 18)
+            //                .frame(width: .infinity, height: 80)
+            //                .foregroundColor(Color(.systemGray5))
+            //                .padding(.horizontal)
+            
+
+            
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("$300.80")
+                        Text("Hi, Atri!")
                             .font(.system(size: 42, design: .rounded))
                             .fontWeight(.semibold)
                         Text("Total spent this month")
-                            .font(.system(.callout, design: .rounded))
+                            .font(.system(.body, design: .rounded))
                             .foregroundColor(Color(.systemGray))
                     }
                     
                     Spacer()
                 }
-                .padding(.top, 45)
-                .padding(.bottom, 12)
+                .padding(.horizontal)
                 
-                CashFlowGraph()
-                    .padding(.bottom, 24)
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Total spent this month")
+                                .font(.system(.body, design: .rounded))
+                                .foregroundColor(Color(.systemGray))
+                            
+                            HStack(alignment: .firstTextBaseline, spacing: 3) {
+                                Text("300")
+                                    .font(.system(size: 52, design: .rounded))
+                                    .fontWeight(.semibold)
+                                Text(".80")
+                                    .font(.system(.largeTitle, design: .rounded))
+                                    .foregroundColor(Color(.systemGray))
+                                Text("$")
+                                    .font(.system(.largeTitle, design: .rounded))
+                                    .foregroundColor(Color(.systemGray))
+                                Spacer()
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    
+                    CashFlowGraph()
+                }
+                .padding(26)
+                .background(.white)
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 20)
+                )
+                .shadow(color: Color(.systemGray4), radius: 10, x: 0, y: 0)
+                .padding()
+                .padding(.bottom)
                 
                 PayList()
+                    .padding(.horizontal)
                 // TODO: ask load more?
             }
             
             Spacer()
         }
-        .padding(.horizontal)
+        .padding(.top, 62)
+        .ignoresSafeArea()
     }
 }

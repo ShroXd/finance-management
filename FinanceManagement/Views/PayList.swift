@@ -13,13 +13,14 @@ struct PayList: View {
             HStack {
                 Text("Today")
                     .foregroundColor(Color("SecondGray"))
-                    .font(.system(.body))
+                    .font(.system(.headline))
                 Spacer()
                 Text("$ 2.20")
                     .foregroundColor(Color("SecondGray"))
-                    .font(.system(.body))
+                    .font(.system(.headline))
             }
             Divider()
+                .padding(.bottom)
             
             // a thinking face
             PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
