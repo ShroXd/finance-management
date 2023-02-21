@@ -94,25 +94,35 @@ struct InboxView: View {
             //                .foregroundColor(Color(.systemGray5))
             //                .padding(.horizontal)
             
-
+            
             
             ScrollView(showsIndicators: false) {
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text("Hi, Atri!")
-                            .font(.system(.largeTitle, design: .rounded))
+                    ZStack {
+                        Circle()
+                            .fill(Color(.systemGray4))
+                            .frame(width: 45, height: 45)
+                        
+                        Image(systemName: "magnifyingglass")
+                            .font(.system(size: 20))
                             .fontWeight(.semibold)
-                        Text("Total spent this month")
-                            .font(.system(.subheadline, design: .rounded))
-                            .foregroundColor(Color(.systemGray))
+                            .foregroundColor(.white)
                     }
                     
+                    Spacer()
+                    VStack {
+                        Text("$30.40")
+                            .font(.system(.title2, design: .rounded))
+                        Text("Net Value")
+                            .font(.system(.footnote, design: .rounded))
+                            .foregroundColor(Color(.systemGray))
+                    }
                     Spacer()
                     
                     ZStack {
                         Circle()
                             .fill(Color("MainBlue"))
-                        .frame(width: 45, height: 45)
+                            .frame(width: 45, height: 45)
                         
                         Image(systemName: "plus")
                             .font(.system(size: 24))
@@ -121,7 +131,8 @@ struct InboxView: View {
                     }
                 }
                 .padding(.horizontal, 22)
-                .padding(.bottom, 44)
+                .padding(.bottom, 24)
+                .padding(.top, 12)
                 
                 VStack(alignment: .leading) {
                     Text("Cash Flow")
