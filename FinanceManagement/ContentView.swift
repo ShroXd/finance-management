@@ -36,6 +36,52 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct StatisticsView: View {
+    var body: some View {
+        HStack(spacing: 60) {
+            VStack(alignment: .leading) {
+                Text("Expense")
+                    .font(.system(.footnote, design: .rounded))
+                    .foregroundColor(Color(.systemGray))
+                
+                HStack(alignment: .firstTextBaseline, spacing: 3) {
+                    Text("$")
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(Color(.systemGray3))
+                    Text("300")
+                        .font(.system(size: 32, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("MainBlue"))
+                    Text(".80")
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(Color(.systemGray))
+                    
+                }
+            }
+            
+            VStack(alignment: .leading) {
+                Text("Income")
+                    .font(.system(.footnote, design: .rounded))
+                    .foregroundColor(Color(.systemGray))
+                
+                HStack(alignment: .firstTextBaseline, spacing: 3) {
+                    Text("$")
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(Color(.systemGray3))
+                    Text("100")
+                        .font(.system(size: 32, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("MainRed"))
+                    Text(".80")
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(Color(.systemGray))
+                    
+                }
+            }
+        }
+    }
+}
+
 struct InboxView: View {
     
     @State var isSimpleStatisticsShow = false
@@ -63,46 +109,31 @@ struct InboxView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 22)
+                .padding(.bottom, 44)
                 
-                VStack {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Total spent this month")
-                                .font(.system(.body, design: .rounded))
-                                .foregroundColor(Color(.systemGray))
-                            
-                            HStack(alignment: .firstTextBaseline, spacing: 3) {
-                                Text("300")
-                                    .font(.system(size: 52, design: .rounded))
-                                    .fontWeight(.semibold)
-                                Text(".80")
-                                    .font(.system(.largeTitle, design: .rounded))
-                                    .foregroundColor(Color(.systemGray))
-                                Text("$")
-                                    .font(.system(.largeTitle, design: .rounded))
-                                    .foregroundColor(Color(.systemGray))
-                                Spacer()
-                            }
-                        }
-                        
-                        Spacer()
-                    }
-                    .padding(.bottom)
-                    
+                VStack(alignment: .leading) {
+                    Text("Cash Flow")
+                        .font(.system(.title3, design: .rounded))
+                        .fontWeight(.semibold)
+                        .padding(.bottom)
                     CashFlowGraph()
+                    StatisticsView()
+                        .padding(.top)
                 }
-                .padding(26)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 32)
                 .background(.white)
                 .clipShape(
                     RoundedRectangle(cornerRadius: 20)
                 )
                 .shadow(color: Color(.systemGray4), radius: 10, x: 0, y: 0)
-                .padding()
+                .padding(.horizontal, 22)
                 .padding(.bottom)
                 
                 PayList()
-                    .padding(.horizontal)
+                    .padding(.horizontal, 22)
+                    .padding(.bottom, 56)
                 // TODO: ask load more?
             }
             
@@ -112,3 +143,4 @@ struct InboxView: View {
         .ignoresSafeArea()
     }
 }
+

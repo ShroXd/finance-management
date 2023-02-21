@@ -43,8 +43,8 @@ struct PayItem: View {
                     .foregroundColor(Color(.systemGray))
             }
         }
-        .padding()
-        .background(Color(.systemGray6))
+        .padding(.vertical)
+//        .background(Color(.systemGray6))
         .cornerRadius(20)
     }
 }

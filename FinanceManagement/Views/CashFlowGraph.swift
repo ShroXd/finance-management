@@ -49,9 +49,9 @@ struct CashFlowGraph: View {
                 }
                 
                 Text(currentMonth)
-                    .font(.system(.callout, design: .rounded))
+                    .font(.system(.footnote, design: .rounded))
                     .foregroundColor(Color(.systemGray))
-                    .padding(.leading, 4)
+//                    .padding(.leading, 4)
             }
         }
     }
