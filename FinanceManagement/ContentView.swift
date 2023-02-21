@@ -100,14 +100,25 @@ struct InboxView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Hi, Atri!")
-                            .font(.system(size: 42, design: .rounded))
+                            .font(.system(.largeTitle, design: .rounded))
                             .fontWeight(.semibold)
                         Text("Total spent this month")
-                            .font(.system(.body, design: .rounded))
+                            .font(.system(.subheadline, design: .rounded))
                             .foregroundColor(Color(.systemGray))
                     }
                     
                     Spacer()
+                    
+                    ZStack {
+                        Circle()
+                            .fill(Color("MainBlue"))
+                        .frame(width: 45, height: 45)
+                        
+                        Image(systemName: "plus")
+                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
                 }
                 .padding(.horizontal, 22)
                 .padding(.bottom, 44)
