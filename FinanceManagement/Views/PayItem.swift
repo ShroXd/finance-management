@@ -19,6 +19,8 @@ struct PayItem: View {
     @State var money: String
     @State var payment: String
     
+    @Binding var showEditView: Bool
+    
     var body: some View {
         HStack {
             Text(icon)
@@ -46,14 +48,17 @@ struct PayItem: View {
         .padding(.vertical)
 //        .background(Color(.systemGray6))
         .cornerRadius(20)
+        .onTapGesture {
+            showEditView.toggle()
+        }
     }
 }
 
 struct PayItem_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay")
-            PayItem(isPay: false, icon: "🐈", name: "cat", time: "23:00", money: "$ 3.22", payment: "Alipay")
+            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: .constant(false))
+            PayItem(isPay: false, icon: "🐈", name: "cat", time: "23:00", money: "$ 3.22", payment: "Alipay", showEditView: .constant(false))
         }
     }
 }

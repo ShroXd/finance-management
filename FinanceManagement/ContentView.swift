@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         TabView {
             InboxView()
@@ -37,17 +38,20 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct InboxView: View {
-    
-    @State var isSimpleStatisticsShow = false
+    @State var expense = Expense(name: "Groceries", amount: 50.0, date: Date())
+    @State var showEditView = false
     
     var body: some View {
         VStack(spacing: 24) {
             ScrollView(showsIndicators: false) {
                 InboxHeader()
                 CalendarGraph()
-                PayList()
+                PayList(showEditView: $showEditView)
                     .padding(.horizontal, 22)
                     .padding(.bottom, 56)
+                    .onTapGesture {
+                        self.showEditView.toggle()
+                    }
                 
                 // TODO: ask load more?
             }
@@ -56,6 +60,9 @@ struct InboxView: View {
         }
         .padding(.top, 62)
         .ignoresSafeArea()
+        .sheet(isPresented: $showEditView) {
+            EditExpenseView(expense: self.$expense)
+        }
     }
 }
 

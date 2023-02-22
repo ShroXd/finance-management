@@ -29,6 +29,7 @@
 		92BD08B729A6528A00BAFEC7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08B629A6528A00BAFEC7 /* Color.swift */; };
 		92BD08B929A653CF00BAFEC7 /* CalendarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08B829A653CF00BAFEC7 /* CalendarGraph.swift */; };
 		92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08BE29A6548000BAFEC7 /* InboxHeader.swift */; };
+		92BD08C129A6590100BAFEC7 /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08C029A6590100BAFEC7 /* EditExpenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		92BD08B629A6528A00BAFEC7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		92BD08B829A653CF00BAFEC7 /* CalendarGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraph.swift; sourceTree = "<group>"; };
 		92BD08BE29A6548000BAFEC7 /* InboxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxHeader.swift; sourceTree = "<group>"; };
+		92BD08C029A6590100BAFEC7 /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				92BD08A3299E582B00BAFEC7 /* PayItem.swift */,
 				92BD08A929A0FA7E00BAFEC7 /* SimpleStatistics.swift */,
 				92BD08AB29A1AE8100BAFEC7 /* CashFlowGraph.swift */,
+				92BD08C029A6590100BAFEC7 /* EditExpenseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				92BD08B429A6492C00BAFEC7 /* Money.swift in Sources */,
 				92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */,
 				92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */,
+				92BD08C129A6590100BAFEC7 /* EditExpenseView.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,
 				92BD08B929A653CF00BAFEC7 /* CalendarGraph.swift in Sources */,
 				92BD08AC29A1AE8100BAFEC7 /* CashFlowGraph.swift in Sources */,
