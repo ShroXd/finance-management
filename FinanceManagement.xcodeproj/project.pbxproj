@@ -125,9 +125,9 @@
 		92BD086D299E3E2300BAFEC7 /* FinanceManagement */ = {
 			isa = PBXGroup;
 			children = (
-				92BD08B529A6527500BAFEC7 /* Types */,
-				92BD08AD29A36BBB00BAFEC7 /* Extensions */,
-				92BD089D299E419800BAFEC7 /* Views */,
+				92BD08B529A6527500BAFEC7 /* Type */,
+				92BD08AD29A36BBB00BAFEC7 /* Extension */,
+				92BD089D299E419800BAFEC7 /* View */,
 				92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */,
 				92BD08A5299E5EB100BAFEC7 /* ContentView.swift */,
 				92BD0870299E3E2300BAFEC7 /* ContentViewBack.swift */,
@@ -164,7 +164,7 @@
 			path = FinanceManagementUITests;
 			sourceTree = "<group>";
 		};
-		92BD089D299E419800BAFEC7 /* Views */ = {
+		92BD089D299E419800BAFEC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				92BD08BD29A6546E00BAFEC7 /* InboxHeader */,
@@ -176,16 +176,16 @@
 				92BD08AB29A1AE8100BAFEC7 /* CashFlowGraph.swift */,
 				92BD08C029A6590100BAFEC7 /* EditExpenseView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
-		92BD08AD29A36BBB00BAFEC7 /* Extensions */ = {
+		92BD08AD29A36BBB00BAFEC7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				92BD08AE29A36BCC00BAFEC7 /* Date.swift */,
 				92BD08B329A6492C00BAFEC7 /* Money.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		92BD08B029A647A700BAFEC7 /* CalendarGraph */ = {
@@ -197,12 +197,12 @@
 			path = CalendarGraph;
 			sourceTree = "<group>";
 		};
-		92BD08B529A6527500BAFEC7 /* Types */ = {
+		92BD08B529A6527500BAFEC7 /* Type */ = {
 			isa = PBXGroup;
 			children = (
 				92BD08B629A6528A00BAFEC7 /* Color.swift */,
 			);
-			path = Types;
+			path = Type;
 			sourceTree = "<group>";
 		};
 		92BD08BD29A6546E00BAFEC7 /* InboxHeader */ = {
