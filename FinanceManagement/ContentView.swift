@@ -44,7 +44,7 @@ struct InboxView: View {
     var body: some View {
         VStack(spacing: 24) {
             ScrollView(showsIndicators: false) {
-                InboxHeader()
+                InboxHeader(showEditView: $showEditView)
                 CalendarGraph()
                 PayList(showEditView: $showEditView)
                     .padding(.horizontal, 22)

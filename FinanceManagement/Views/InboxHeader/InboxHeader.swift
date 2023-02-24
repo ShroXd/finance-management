@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct InboxHeader: View {
+    @Binding var showEditView: Bool
+    
+    init(showEditView: Binding<Bool> = .constant(false)) {
+        _showEditView = showEditView
+    }
+    
     var body: some View {
         HStack {
             ZStack {
@@ -40,6 +46,9 @@ struct InboxHeader: View {
                     .font(.system(size: 24))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
+                    .onTapGesture {
+                        self.showEditView.toggle()
+                    }
             }
         }
         .padding(.horizontal, 22)
