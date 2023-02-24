@@ -10,7 +10,7 @@ import SwiftUI
 struct PayList: View {
     @Binding var showEditView: Bool
     
-    var financeItems: FetchedResults<FinanceItem>
+    var paymentDataForView: [PaymentActivity]
     
     var body: some View {
         VStack {
@@ -26,8 +26,8 @@ struct PayList: View {
             .padding(.top)
             
             List {
-                ForEach(financeItems) { element in
-                    AccountRow(financeItem: element, showEditView: .constant(false))
+                ForEach(paymentDataForView) { element in
+                    AccountRow(paymentItem: element, showEditView: .constant(false))
                 }
             }
         }
@@ -35,17 +35,16 @@ struct PayList: View {
 }
 
 struct PayList_Previews: PreviewProvider {
-    struct PayListContainer: View {
-        @FetchRequest(sortDescriptors: [])
-        private var financeItems: FetchedResults<FinanceItem>
-
-        var body: some View {
-            PayList(showEditView: .constant(false), financeItems: financeItems)
-        }
-    }
-
     static var previews: some View {
-        PayListContainer()
-            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+        let context = PersistenceController.shared.container.viewContext
+        let testTrans = PaymentActivity(context: context)
+        
+        testTrans.paymentId = UUID()
+        testTrans.name = "Cat"
+        testTrans.date = "Feb 2"
+        testTrans.amount = 12.34
+        testTrans.type = .expense
+        
+        return PayList(showEditView: .constant(false), paymentDataForView: [testTrans])
     }
 }

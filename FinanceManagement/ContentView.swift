@@ -10,14 +10,20 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var context
+    
     @FetchRequest(
-        entity: FinanceItem.entity(),
-        sortDescriptors: [])
-    var financeItems: FetchedResults<FinanceItem>
+        entity: PaymentActivity.entity(),
+        sortDescriptors: [ NSSortDescriptor(keyPath: \PaymentActivity.date, ascending: false) ])
+    var paymentActivity: FetchedResults<PaymentActivity>
+    
+    private var paymentDataForView: [PaymentActivity] {
+        return paymentActivity
+            .sorted(by: { $0.date.compare($1.date) == .orderedAscending })
+    }
     
     var body: some View {
         TabView {
-            InboxView(currentFinanceItem: nil, financeItems: financeItems)
+            InboxView(paymentDataForView: paymentDataForView)
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
@@ -44,24 +50,21 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct InboxView: View {
-    @State var expense = Expense(name: "Groceries", amount: 50.0, date: Date())
     @State var showEditView = false
-    @State var currentFinanceItem: Optional<FinanceItem>
     
-    var financeItems: FetchedResults<FinanceItem>
+    var paymentDataForView: [PaymentActivity]
     
     var body: some View {
         VStack(spacing: 24) {
             ScrollView(showsIndicators: false) {
                 InboxHeader(showEditView: $showEditView)
                 CalendarGraph()
-                PayList(showEditView: $showEditView, financeItems: financeItems)
+                PayList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
                     .padding(.horizontal, 22)
                     .padding(.bottom, 56)
                     .onTapGesture {
                         self.showEditView.toggle()
-                        self.currentFinanceItem = financeItems[0]
-                        print("accountItems: ", financeItems)
+                        print("paymentDataForView: ", paymentDataForView)
                     }
                 
                 // TODO: ask load more?
@@ -72,13 +75,13 @@ struct InboxView: View {
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
-            EditFinanceItemView(
-                showEditView: $showEditView,
-                title: currentFinanceItem?.title ?? "Title",
-                money: currentFinanceItem?.money ?? 23.32,
-                time: currentFinanceItem?.time ?? "Feb 2",
-                payment: currentFinanceItem?.payment ?? .bank
-            )
+//            EditFinanceItemView(
+//                showEditView: $showEditView,
+//                title: currentFinanceItem?.title ?? "Title",
+//                money: currentFinanceItem?.money ?? 23.32,
+//                time: currentFinanceItem?.time ?? "Feb 2",
+//                payment: currentFinanceItem?.payment ?? .bank
+//            )
         }
     }
 }

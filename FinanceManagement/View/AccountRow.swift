@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountRow: View {
     
-    @ObservedObject var financeItem: FinanceItem
+    var paymentItem: PaymentActivity
     
     @Binding var showEditView: Bool
     
@@ -19,10 +19,10 @@ struct AccountRow: View {
                 .font(.system(.title))
                 .padding(.horizontal, 7)
             VStack(alignment: .leading, spacing: 3) {
-                Text(financeItem.title)
+                Text(paymentItem.name)
                     .font(.system(.headline))
                     .fontWeight(.semibold)
-                Text(financeItem.time)
+                Text(paymentItem.date)
                     .font(.system(.footnote))
                     .foregroundColor(Color(.systemGray))
             }
@@ -32,9 +32,9 @@ struct AccountRow: View {
                     .font(.system(.headline))
                     .fontWeight(.semibold)
 //                    .foregroundColor(Color(false ? "MainRed" : "MainBlue"))
-//                Text(accountItem.payment.rawValue)
-//                    .font(.system(.footnote))
-//                    .foregroundColor(Color(.systemGray))
+                Text("Alipay")
+                    .font(.system(.footnote))
+                    .foregroundColor(Color(.systemGray))
             }
         }
         .padding(.vertical)
@@ -45,13 +45,19 @@ struct AccountRow: View {
     }
 }
 
-struct PayItem_Previews: PreviewProvider {
+struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
-//            AccountRow(financeItem: <#T##FinanceItem#>, showEditView: .constant(false))
-//            AccountRow(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: .constant(false))
-//            AccountRow(accountItem: AccountItem(title: "Cat", money: 3.22, time: "Feb 2", payment: .alipay, isPay: false), showEditView: .constant(false))
-//            AccountRow(accountItem: AccountItem(title: "Food", money: 1.22, time: "Feb 2", payment: .alipay, isPay: true), showEditView: .constant(false))
+        let context = PersistenceController.shared.container.viewContext
+        let testTrans = PaymentActivity(context: context)
+        
+        testTrans.paymentId = UUID()
+        testTrans.name = "Cat"
+        testTrans.date = "Feb 2"
+        testTrans.amount = 12.34
+        testTrans.type = .expense
+        
+        return Group {
+            AccountRow(paymentItem: testTrans, showEditView: .constant(false))
         }
     }
 }
