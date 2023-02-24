@@ -10,9 +10,7 @@ import SwiftUI
 struct PayList: View {
     @Binding var showEditView: Bool
     
-    init(showEditView: Binding<Bool> = .constant(false)) {
-        _showEditView = showEditView
-    }
+    let financeItems: FetchedResults<FinanceItem>
     
     var body: some View {
         VStack {
@@ -27,18 +25,28 @@ struct PayList: View {
             }
             .padding(.top)
             
-            // a thinking face
-            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: $showEditView)
-            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: $showEditView)
-            PayItem(isPay: false, icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: $showEditView)
-            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: $showEditView)
-            PayItem(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: $showEditView)
+            List {
+                ForEach(financeItems) { element in
+                    AccountRow(financeItem: element, showEditView: .constant(false))
+                }
+            }
         }
     }
 }
 
 struct PayList_Previews: PreviewProvider {
+
+    struct PayListContainer: View {
+        @FetchRequest(sortDescriptors: [])
+        private var financeItems: FetchedResults<FinanceItem>
+
+        var body: some View {
+            PayList(showEditView: .constant(false), financeItems: financeItems)
+        }
+    }
+
     static var previews: some View {
-        PayList()
+        PayListContainer()
+            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }
