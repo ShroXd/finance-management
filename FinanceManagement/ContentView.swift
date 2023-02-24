@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            InboxView(financeItems: financeItems)
+            InboxView(currentFinanceItem: nil, financeItems: financeItems)
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
@@ -46,9 +46,10 @@ struct ContentView_Previews: PreviewProvider {
 struct InboxView: View {
     @State var expense = Expense(name: "Groceries", amount: 50.0, date: Date())
     @State var showEditView = false
-
+    @State var currentFinanceItem: Optional<FinanceItem>
+    
     var financeItems: FetchedResults<FinanceItem>
-
+    
     var body: some View {
         VStack(spacing: 24) {
             ScrollView(showsIndicators: false) {
@@ -59,18 +60,25 @@ struct InboxView: View {
                     .padding(.bottom, 56)
                     .onTapGesture {
                         self.showEditView.toggle()
+                        self.currentFinanceItem = financeItems[0]
                         print("accountItems: ", financeItems)
                     }
-
+                
                 // TODO: ask load more?
             }
-
+            
             Spacer()
         }
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
-            EditExpenseView(expense: self.$expense)
+            EditFinanceItemView(
+                showEditView: $showEditView,
+                title: currentFinanceItem?.title ?? "Title",
+                money: currentFinanceItem?.money ?? 23.32,
+                time: currentFinanceItem?.time ?? "Feb 2",
+                payment: currentFinanceItem?.payment ?? .bank
+            )
         }
     }
 }

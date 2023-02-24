@@ -19,12 +19,12 @@ struct AccountRow: View {
                 .font(.system(.title))
                 .padding(.horizontal, 7)
             VStack(alignment: .leading, spacing: 3) {
-//                Text(accountItem.title)
-//                    .font(.system(.headline))
-//                    .fontWeight(.semibold)
-//                Text(accountItem.time)
-//                    .font(.system(.footnote))
-//                    .foregroundColor(Color(.systemGray))
+                Text(financeItem.title)
+                    .font(.system(.headline))
+                    .fontWeight(.semibold)
+                Text(financeItem.time)
+                    .font(.system(.footnote))
+                    .foregroundColor(Color(.systemGray))
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
@@ -45,12 +45,13 @@ struct AccountRow: View {
     }
 }
 
-//struct PayItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VStack {
-////            AccountRow(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: .constant(false))
-////            AccountRow(accountItem: AccountItem(title: "Cat", money: 3.22, time: "Feb 2", payment: .alipay, isPay: false), showEditView: .constant(false))
-////            AccountRow(accountItem: AccountItem(title: "Food", money: 1.22, time: "Feb 2", payment: .alipay, isPay: true), showEditView: .constant(false))
-//        }
-//    }
-//}
+struct PayItem_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+//            AccountRow(financeItem: <#T##FinanceItem#>, showEditView: .constant(false))
+//            AccountRow(icon: "🐈", name: "cat", time: "4:24 PM", money: "$ 3.22", payment: "Alipay", showEditView: .constant(false))
+//            AccountRow(accountItem: AccountItem(title: "Cat", money: 3.22, time: "Feb 2", payment: .alipay, isPay: false), showEditView: .constant(false))
+//            AccountRow(accountItem: AccountItem(title: "Food", money: 1.22, time: "Feb 2", payment: .alipay, isPay: true), showEditView: .constant(false))
+        }
+    }
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct PayList: View {
     @Binding var showEditView: Bool
     
-    let financeItems: FetchedResults<FinanceItem>
+    var financeItems: FetchedResults<FinanceItem>
     
     var body: some View {
         VStack {
@@ -35,7 +35,6 @@ struct PayList: View {
 }
 
 struct PayList_Previews: PreviewProvider {
-
     struct PayListContainer: View {
         @FetchRequest(sortDescriptors: [])
         private var financeItems: FetchedResults<FinanceItem>

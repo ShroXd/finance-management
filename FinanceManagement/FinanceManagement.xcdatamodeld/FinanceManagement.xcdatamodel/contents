@@ -3,7 +3,7 @@
     <entity name="FinanceItem" representedClassName=".FinanceItem" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="payment" optional="YES" attributeType="String"/>
+        <attribute name="paymentStr" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
