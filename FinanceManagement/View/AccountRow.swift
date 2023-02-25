@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountRow: View {
     
-    var paymentItem: PaymentActivity
+    @ObservedObject var paymentItem: PaymentActivity
     
     @Binding var showEditView: Bool
     

@@ -22,14 +22,16 @@ struct PayList: View {
                 Text("$ 2.20")
                     .foregroundColor(Color(.systemGray))
                     .font(.system(.body))
+                    .onTapGesture {
+                        print("Log from pay list: ", paymentDataForView.first!)
+                    }
             }
             .padding(.top)
             
-            List {
-                ForEach(paymentDataForView) { element in
-                    AccountRow(paymentItem: element, showEditView: .constant(false))
-                }
+            ForEach(paymentDataForView) { element in
+                AccountRow(paymentItem: element, showEditView: .constant(false))
             }
+            
         }
     }
 }

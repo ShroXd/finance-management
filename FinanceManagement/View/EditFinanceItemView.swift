@@ -18,11 +18,6 @@ struct EditFinanceItemView: View {
     
     @Binding var showEditView: Bool
     
-    @State var title: String
-    @State var money: Double
-    @State var time: String
-    @State var payment: Payment
-    
     var body: some View {
         VStack {
             Spacer()
@@ -45,11 +40,11 @@ struct EditFinanceItemView: View {
                     }
                 }
                 
-                TextField("Enter the task description", text: $title)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(8)
-                    .padding(.bottom)
+//                TextField("Enter the task description")
+//                    .padding()
+//                    .background(Color(.systemGray6))
+//                    .cornerRadius(8)
+//                    .padding(.bottom)
                 
 //                Text("Priority")
 //                    .font(.system(.subheadline, design: .rounded))
@@ -90,19 +85,8 @@ struct EditFinanceItemView: View {
                 
                 // Save button for adding the todo item
                 Button(action: {
-                    
-                    if self.title.trimmingCharacters(in: .whitespaces) == "" {
-                        return
-                    }
-
                     self.showEditView = false
-                    
-                    self.addFinanceItem(
-                        title: "Cat",
-                        money: 22.3,
-                        time: "Feb 2",
-                        payment: .bank
-                    )
+                    self.addPaymentActivity()
                     
                 }) {
                     Text("Save")
@@ -123,15 +107,14 @@ struct EditFinanceItemView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
     
-    private func addFinanceItem(title: String, money: Double, time: String, payment: Payment) {
-        let financeItem = FinanceItem(context: context)
+    private func addPaymentActivity() {
+        let paymentActivity = PaymentActivity(context: context)
         
-        financeItem.id = UUID()
-        financeItem.title = title
-        financeItem.money = money
-        financeItem.time = time
-        financeItem.payment = payment
-
+        paymentActivity.paymentId = UUID()
+        paymentActivity.name = "Cat"
+        paymentActivity.date = "Feb 2"
+        paymentActivity.amount = 23.44
+        paymentActivity.type = .expense
         
         do {
             try context.save()
@@ -143,6 +126,6 @@ struct EditFinanceItemView: View {
 
 struct EditExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        EditFinanceItemView(showEditView: .constant(false), title: "Cat", money: 12.32, time: "Feb 2", payment: .bank)
+        EditFinanceItemView(showEditView: .constant(false))
     }
 }

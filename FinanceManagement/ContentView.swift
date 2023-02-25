@@ -13,8 +13,8 @@ struct ContentView: View {
     
     @FetchRequest(
         entity: PaymentActivity.entity(),
-        sortDescriptors: [ NSSortDescriptor(keyPath: \PaymentActivity.date, ascending: false) ])
-    var paymentActivity: FetchedResults<PaymentActivity>
+        sortDescriptors: [ NSSortDescriptor(keyPath: \PaymentActivity.date, ascending: false)]
+    ) var paymentActivity: FetchedResults<PaymentActivity>
     
     private var paymentDataForView: [PaymentActivity] {
         return paymentActivity
@@ -75,13 +75,9 @@ struct InboxView: View {
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
-//            EditFinanceItemView(
-//                showEditView: $showEditView,
-//                title: currentFinanceItem?.title ?? "Title",
-//                money: currentFinanceItem?.money ?? 23.32,
-//                time: currentFinanceItem?.time ?? "Feb 2",
-//                payment: currentFinanceItem?.payment ?? .bank
-//            )
+            EditFinanceItemView(
+                showEditView: $showEditView
+            )
         }
     }
 }
