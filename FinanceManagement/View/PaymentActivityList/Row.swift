@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Row: View {
     
-    @ObservedObject var paymentItem: PaymentActivity
+    @ObservedObject var paymentActivity: PaymentActivity
     
     @Binding var showEditView: Bool
     
@@ -19,9 +19,9 @@ struct Row: View {
                 .font(.system(.title))
                 .padding(.horizontal, 7)
             VStack(alignment: .leading) {
-                Text(paymentItem.name)
+                Text(paymentActivity.name)
                     .font(.system(.body))
-                Text(paymentItem.date.getFormattedDate(format: "MMM"))
+                Text(paymentActivity.date.getFormattedDate(format: "MMM"))
                     .font(.system(.footnote))
                     .foregroundColor(Color(.systemGray2))
             }
@@ -30,7 +30,7 @@ struct Row: View {
                 Text("34.23")
                     .font(.system(.title3))
                     .fontWeight(.semibold)
-                    .foregroundColor(Color(false ? "MainRed" : "MainBlue"))
+                    .foregroundColor(Color(paymentActivity.type == .expense ? "MainRed" : "MainBlue"))
             }
         }
         .padding(.vertical)
@@ -53,7 +53,7 @@ struct AccountRow_Previews: PreviewProvider {
         testTrans.type = .expense
         
         return Group {
-            Row(paymentItem: testTrans, showEditView: .constant(false))
+            Row(paymentActivity: testTrans, showEditView: .constant(false))
         }
     }
 }

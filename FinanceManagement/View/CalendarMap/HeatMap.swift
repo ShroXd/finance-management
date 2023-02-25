@@ -51,7 +51,6 @@ struct HeatMap: View {
                 Text(currentMonth)
                     .font(.system(.footnote, design: .rounded))
                     .foregroundColor(Color(.systemGray))
-//                    .padding(.leading, 4)
             }
         }
     }

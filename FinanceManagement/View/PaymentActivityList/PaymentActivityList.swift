@@ -13,7 +13,10 @@ struct PaymentActivityList: View {
     var paymentDataForView: [PaymentActivity]
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            SectionTitle(name: "Recent transactions")
+                .padding(.bottom)
+            
             HStack {
                 Text("Today")
                     .foregroundColor(Color(.systemGray))
@@ -26,10 +29,9 @@ struct PaymentActivityList: View {
                         print("Log from pay list: ", paymentDataForView.first!)
                     }
             }
-            .padding(.top)
             
-            ForEach(paymentDataForView) { element in
-                Row(paymentItem: element, showEditView: .constant(false))
+            ForEach(paymentDataForView) { activity in
+                Row(paymentActivity: activity, showEditView: .constant(false))
             }
             
         }

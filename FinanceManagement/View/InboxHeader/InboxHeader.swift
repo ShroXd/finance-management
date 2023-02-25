@@ -51,9 +51,6 @@ struct InboxHeader: View {
                     }
             }
         }
-        .padding(.horizontal, 22)
-        .padding(.bottom, 24)
-        .padding(.top, 12)
     }
 }
 

@@ -27,6 +27,7 @@
 		92BD08B929A653CF00BAFEC7 /* CalendarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08B829A653CF00BAFEC7 /* CalendarMap.swift */; };
 		92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08BE29A6548000BAFEC7 /* InboxHeader.swift */; };
 		92BD08C129A6590100BAFEC7 /* PaymentActivityEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD08C029A6590100BAFEC7 /* PaymentActivityEdit.swift */; };
+		92DC64AB29A9CF3E00EE07C3 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC64AA29A9CF3E00EE07C3 /* SectionTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		92BD08B829A653CF00BAFEC7 /* CalendarMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMap.swift; sourceTree = "<group>"; };
 		92BD08BE29A6548000BAFEC7 /* InboxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxHeader.swift; sourceTree = "<group>"; };
 		92BD08C029A6590100BAFEC7 /* PaymentActivityEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentActivityEdit.swift; sourceTree = "<group>"; };
+		92DC64AA29A9CF3E00EE07C3 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		92BD089D299E419800BAFEC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92DC64A929A9CF2500EE07C3 /* Common */,
 				92BD08BD29A6546E00BAFEC7 /* InboxHeader */,
 				92BD08B029A647A700BAFEC7 /* CalendarMap */,
 				92DC64A729A9C6BA00EE07C3 /* PaymentActivityList */,
@@ -219,6 +222,14 @@
 				92BD08C029A6590100BAFEC7 /* PaymentActivityEdit.swift */,
 			);
 			path = PaymentActivityEdit;
+			sourceTree = "<group>";
+		};
+		92DC64A929A9CF2500EE07C3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				92DC64AA29A9CF3E00EE07C3 /* SectionTitle.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		92E77C9B29A89470009E378C /* Model */ = {
@@ -364,6 +375,7 @@
 				92BD08B429A6492C00BAFEC7 /* Money.swift in Sources */,
 				92AD698629A8CE250079B54B /* PaymentActivity.swift in Sources */,
 				92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */,
+				92DC64AB29A9CF3E00EE07C3 /* SectionTitle.swift in Sources */,
 				92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */,
 				92BD08C129A6590100BAFEC7 /* PaymentActivityEdit.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,

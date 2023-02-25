@@ -55,23 +55,25 @@ struct InboxView: View {
     var paymentDataForView: [PaymentActivity]
     
     var body: some View {
-        VStack(spacing: 24) {
+        VStack {
             ScrollView(showsIndicators: false) {
-                InboxHeader(showEditView: $showEditView)
-                CalendarMap()
-                PaymentActivityList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
-                    .padding(.horizontal, 22)
-                    .padding(.bottom, 56)
-                    .onTapGesture {
-                        self.showEditView.toggle()
-                        print("paymentDataForView: ", paymentDataForView)
-                    }
-                
-                // TODO: ask load more?
+                VStack(spacing: 32) {
+                    InboxHeader(showEditView: $showEditView)
+                    CalendarMap()
+                    PaymentActivityList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
+                        .padding(.bottom, 56)
+                        .onTapGesture {
+                            self.showEditView.toggle()
+                            print("paymentDataForView: ", paymentDataForView)
+                        }
+                    
+                    // TODO: ask load more?
+                }
             }
             
             Spacer()
         }
+        .padding(.horizontal, 22)
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
