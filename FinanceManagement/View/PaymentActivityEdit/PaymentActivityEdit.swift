@@ -1,5 +1,5 @@
 //
-//  EditExpenseView.swift
+//  PaymentActivityEdit.swift
 //  FinanceManagement
 //
 //  Created by atriiy on 2023/2/22.
@@ -13,7 +13,7 @@ struct Expense {
     var date: Date
 }
 
-struct EditFinanceItemView: View {
+struct PaymentActivityEdit: View {
     @Environment(\.managedObjectContext) var context
     
     @Binding var showEditView: Bool
@@ -126,6 +126,6 @@ struct EditFinanceItemView: View {
 
 struct EditExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        EditFinanceItemView(showEditView: .constant(false))
+        PaymentActivityEdit(showEditView: .constant(false))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PayItem.swift
+//  Row.swift
 //  FinanceManagement
 //
 //  Created by atriiy on 2023/2/16.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountRow: View {
+struct Row: View {
     
     @ObservedObject var paymentItem: PaymentActivity
     
@@ -53,7 +53,7 @@ struct AccountRow_Previews: PreviewProvider {
         testTrans.type = .expense
         
         return Group {
-            AccountRow(paymentItem: testTrans, showEditView: .constant(false))
+            Row(paymentItem: testTrans, showEditView: .constant(false))
         }
     }
 }

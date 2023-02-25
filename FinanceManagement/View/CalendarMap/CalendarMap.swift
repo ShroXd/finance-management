@@ -1,5 +1,5 @@
 //
-//  CalendarGraph.swift
+//  CalendarMap.swift
 //  FinanceManagement
 //
 //  Created by atriiy on 2023/2/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CalendarGraph: View {
+struct CalendarMap: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Cash Flow")
                 .font(.system(.title3, design: .rounded))
                 .fontWeight(.semibold)
                 .padding(.bottom)
-            CashFlowGraph()
+            HeatMap()
             HStack(spacing: 60) {
                 Summation(lable: "Expense", money: 300.8, color: .red)
                 Summation(lable: "Income", money: 100.08, color: .blue)
@@ -35,6 +35,6 @@ struct CalendarGraph: View {
 
 struct CalendarGraph_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarGraph()
+        CalendarMap()
     }
 }

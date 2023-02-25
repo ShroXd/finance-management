@@ -1,5 +1,5 @@
 //
-//  PayList.swift
+//  PaymentActivityList.swift
 //  FinanceManagement
 //
 //  Created by atriiy on 2023/2/16.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PayList: View {
+struct PaymentActivityList: View {
     @Binding var showEditView: Bool
     
     var paymentDataForView: [PaymentActivity]
@@ -29,7 +29,7 @@ struct PayList: View {
             .padding(.top)
             
             ForEach(paymentDataForView) { element in
-                AccountRow(paymentItem: element, showEditView: .constant(false))
+                Row(paymentItem: element, showEditView: .constant(false))
             }
             
         }
@@ -47,6 +47,6 @@ struct PayList_Previews: PreviewProvider {
         testTrans.amount = 12.34
         testTrans.type = .expense
         
-        return PayList(showEditView: .constant(false), paymentDataForView: [testTrans])
+        return PaymentActivityList(showEditView: .constant(false), paymentDataForView: [testTrans])
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CashFlowGraph.swift
+//  HeatMap.swift
 //  FinanceManagement
 //
 //  Created by atriiy on 2023/2/19.
@@ -31,7 +31,7 @@ func randomColor() -> String {
     }
 }
 
-struct CashFlowGraph: View {
+struct HeatMap: View {
     var currentMonth: String = Date().getCurrentMonth()
     var nextMonth: String = Date().getNextMonth()
     
@@ -59,7 +59,7 @@ struct CashFlowGraph: View {
 
 struct CashFlowGraph_Previews: PreviewProvider {
     static var previews: some View {
-        CashFlowGraph()
+        HeatMap()
     }
 }
 

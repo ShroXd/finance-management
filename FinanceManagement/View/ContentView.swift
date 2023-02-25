@@ -58,8 +58,8 @@ struct InboxView: View {
         VStack(spacing: 24) {
             ScrollView(showsIndicators: false) {
                 InboxHeader(showEditView: $showEditView)
-                CalendarGraph()
-                PayList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
+                CalendarMap()
+                PaymentActivityList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
                     .padding(.horizontal, 22)
                     .padding(.bottom, 56)
                     .onTapGesture {
@@ -75,7 +75,7 @@ struct InboxView: View {
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
-            EditFinanceItemView(
+            PaymentActivityEdit(
                 showEditView: $showEditView
             )
         }
