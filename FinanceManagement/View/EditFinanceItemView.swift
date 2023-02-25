@@ -112,7 +112,7 @@ struct EditFinanceItemView: View {
         
         paymentActivity.paymentId = UUID()
         paymentActivity.name = "Cat"
-        paymentActivity.date = "Feb 2"
+        paymentActivity.date = Date()
         paymentActivity.amount = 23.44
         paymentActivity.type = .expense
         

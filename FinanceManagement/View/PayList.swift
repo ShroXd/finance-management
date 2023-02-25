@@ -43,7 +43,7 @@ struct PayList_Previews: PreviewProvider {
         
         testTrans.paymentId = UUID()
         testTrans.name = "Cat"
-        testTrans.date = "Feb 2"
+        testTrans.date = Date()
         testTrans.amount = 12.34
         testTrans.type = .expense
         

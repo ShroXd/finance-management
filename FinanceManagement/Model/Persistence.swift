@@ -18,7 +18,7 @@ struct PersistenceController {
             
             newItem.paymentId = UUID()
             newItem.name = "Cat"
-            newItem.date = "Feb 2"
+            newItem.date = Date()
             newItem.amount = 12.34
             newItem.type = .expense
         }

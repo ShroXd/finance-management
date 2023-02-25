@@ -18,7 +18,7 @@ public class PaymentActivity: NSManagedObject {
     
     @NSManaged public var paymentId: UUID
     @NSManaged public var name: String
-    @NSManaged public var date: String
+    @NSManaged public var date: Date
     @NSManaged public var amount: Double
     @NSManaged public var typeNum: Int32
 }

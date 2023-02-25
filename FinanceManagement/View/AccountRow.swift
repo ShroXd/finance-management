@@ -18,23 +18,19 @@ struct AccountRow: View {
             Text("🐈")
                 .font(.system(.title))
                 .padding(.horizontal, 7)
-            VStack(alignment: .leading, spacing: 3) {
+            VStack(alignment: .leading) {
                 Text(paymentItem.name)
-                    .font(.system(.headline))
-                    .fontWeight(.semibold)
-                Text(paymentItem.date)
+                    .font(.system(.body))
+                Text(paymentItem.date.getFormattedDate(format: "MMM"))
                     .font(.system(.footnote))
-                    .foregroundColor(Color(.systemGray))
+                    .foregroundColor(Color(.systemGray2))
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
                 Text("34.23")
-                    .font(.system(.headline))
+                    .font(.system(.title3))
                     .fontWeight(.semibold)
-//                    .foregroundColor(Color(false ? "MainRed" : "MainBlue"))
-                Text("Alipay")
-                    .font(.system(.footnote))
-                    .foregroundColor(Color(.systemGray))
+                    .foregroundColor(Color(false ? "MainRed" : "MainBlue"))
             }
         }
         .padding(.vertical)
@@ -52,7 +48,7 @@ struct AccountRow_Previews: PreviewProvider {
         
         testTrans.paymentId = UUID()
         testTrans.name = "Cat"
-        testTrans.date = "Feb 2"
+        testTrans.date = Date()
         testTrans.amount = 12.34
         testTrans.type = .expense
         
