@@ -33,13 +33,7 @@ struct PaymentActivityList: View {
             
             List {
                 ForEach(paymentDataForView, id: \.paymentId) { activity in
-                    NavigationLink(
-                        destination: PaymentActivityEdit(
-                            showEditView: $showEditView,
-                            selectedPayment: selectedPayment
-                        )) {
-                            Row(paymentActivity: activity)
-                        }
+                    NavigatableRow(showEditView: $showEditView, selectedPayment: $selectedPayment, activity: activity)
                 }
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
@@ -71,5 +65,27 @@ struct PayList_Previews: PreviewProvider {
         testTrans.type = .expense
         
         return PaymentActivityList(showEditView: .constant(false), selectedPayment: .constant(nil), paymentDataForView: [testTrans])
+    }
+}
+
+struct NavigatableRow: View {
+    @Binding var showEditView: Bool
+    @Binding var selectedPayment: PaymentActivity?
+    @ObservedObject var activity: PaymentActivity
+    
+    var body: some View {
+        ZStack {
+            NavigationLink(
+                destination: PaymentActivityEdit(
+                    showEditView: $showEditView,
+                    selectedPayment: selectedPayment
+                ).toolbar(.hidden, for: .tabBar)) {
+                    EmptyView()
+                }
+                .opacity(0.0)
+                .buttonStyle(PlainButtonStyle())
+            
+            Row(paymentActivity: activity)
+        }
     }
 }
