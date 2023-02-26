@@ -45,22 +45,27 @@ private struct KeyStyle: ButtonStyle {
     }
 }
 
-private struct Key: View {
-    @State private var keyClicked = false
+private struct KeyBuilder<Content: View>: View {
+    let content: Content
+    let fn: () -> Void
     
-    var name: String
+    @Binding var keyClicked: Bool
     
-    var body: some View {
-        Button(action: keyAction) {
-            Text(name)
-                .font(.system(keyClicked ? .title : .title2))
-        }
-        .buttonStyle(KeyStyle())
+    init(action: @escaping () -> Void, @ViewBuilder content: () -> Content, keyClicked: Binding<Bool>) {
+        self.fn = action
+        self.content = content()
+        self._keyClicked = keyClicked
     }
     
-    private func keyAction() {
-        print(Date())
-        
+    var body: some View {
+        Button(action: {
+            fn()
+            keyEffect()
+        }, label: { content })
+            .buttonStyle(KeyStyle())
+    }
+    
+    private func keyEffect() {
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
         impactMed.impactOccurred()
         
@@ -72,6 +77,24 @@ private struct Key: View {
                 self.keyClicked.toggle()
             }
         }
+    }
+}
+
+private struct Key: View {
+    @State private var keyClicked = false
+    
+    var name: String
+    
+    var body: some View {
+        KeyBuilder(
+            action: keyAction,
+            content: { Text(name).font(.system(size: keyClicked ? 32 : 24)) },
+            keyClicked: $keyClicked
+        )
+    }
+    
+    private func keyAction() {
+        print(Date())
     }
 }
 
