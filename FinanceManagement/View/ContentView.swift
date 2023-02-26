@@ -51,6 +51,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct InboxView: View {
     @State var showEditView = false
+    @State var selectedPayment: PaymentActivity?
     
     var paymentDataForView: [PaymentActivity]
     
@@ -60,13 +61,12 @@ struct InboxView: View {
                 VStack(spacing: 32) {
                     InboxHeader(showEditView: $showEditView)
                     CalendarMap()
-                    PaymentActivityList(showEditView: $showEditView, paymentDataForView: paymentDataForView)
-                        .padding(.bottom, 56)
-                        .onTapGesture {
-                            self.showEditView.toggle()
-                            print("paymentDataForView: ", paymentDataForView)
-                        }
-                    
+                    PaymentActivityList(
+                        showEditView: $showEditView,
+                        selectedPayment: $selectedPayment,
+                        paymentDataForView: paymentDataForView
+                    )
+                    .padding(.bottom, 56)
                     // TODO: ask load more?
                 }
             }
@@ -78,7 +78,8 @@ struct InboxView: View {
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
             PaymentActivityEdit(
-                showEditView: $showEditView
+                showEditView: $showEditView,
+                selectedPayment: selectedPayment
             )
         }
     }

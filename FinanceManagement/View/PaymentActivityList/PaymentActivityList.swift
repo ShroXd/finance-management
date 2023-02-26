@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PaymentActivityList: View {
     @Binding var showEditView: Bool
+    @Binding var selectedPayment: PaymentActivity?
     
     var paymentDataForView: [PaymentActivity]
     
@@ -29,11 +30,13 @@ struct PaymentActivityList: View {
                         print("Log from pay list: ", paymentDataForView.first!)
                     }
             }
-            
             ForEach(paymentDataForView) { activity in
-                Row(paymentActivity: activity, showEditView: .constant(false))
+                Row(paymentActivity: activity)
+                    .onTapGesture {
+                        showEditView.toggle()
+                        selectedPayment = activity
+                    }
             }
-            
         }
     }
 }
@@ -49,6 +52,6 @@ struct PayList_Previews: PreviewProvider {
         testTrans.amount = 12.34
         testTrans.type = .expense
         
-        return PaymentActivityList(showEditView: .constant(false), paymentDataForView: [testTrans])
+        return PaymentActivityList(showEditView: .constant(false), selectedPayment: .constant(nil), paymentDataForView: [testTrans])
     }
 }

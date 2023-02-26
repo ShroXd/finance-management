@@ -11,8 +11,6 @@ struct Row: View {
     
     @ObservedObject var paymentActivity: PaymentActivity
     
-    @Binding var showEditView: Bool
-    
     var body: some View {
         HStack {
             Text("🐈")
@@ -35,9 +33,6 @@ struct Row: View {
         }
         .padding(.vertical)
         .cornerRadius(20)
-        .onTapGesture {
-            showEditView.toggle()
-        }
     }
 }
 
@@ -53,7 +48,7 @@ struct AccountRow_Previews: PreviewProvider {
         testTrans.type = .expense
         
         return Group {
-            Row(paymentActivity: testTrans, showEditView: .constant(false))
+            Row(paymentActivity: testTrans)
         }
     }
 }

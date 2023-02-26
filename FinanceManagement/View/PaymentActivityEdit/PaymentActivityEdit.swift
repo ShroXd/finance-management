@@ -17,6 +17,7 @@ struct PaymentActivityEdit: View {
     @Environment(\.managedObjectContext) var context
     
     @Binding var showEditView: Bool
+    @State var selectedPayment: PaymentActivity?
     
     var body: some View {
         VStack {
@@ -27,6 +28,11 @@ struct PaymentActivityEdit: View {
                     Text("Add a new task")
                         .font(.system(.title, design: .rounded))
                         .bold()
+                    
+                    if selectedPayment != nil {
+                        Text(selectedPayment!.name)
+                            .font(.system(.title))
+                    }
                     
                     Spacer()
                     
@@ -126,6 +132,9 @@ struct PaymentActivityEdit: View {
 
 struct EditExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentActivityEdit(showEditView: .constant(false))
+        PaymentActivityEdit(
+            showEditView: .constant(false),
+            selectedPayment: nil
+        )
     }
 }
