@@ -16,27 +16,45 @@ struct PaymentActivityList: View {
     var body: some View {
         VStack(alignment: .leading) {
             SectionTitle(name: "Recent transactions")
-                .padding(.bottom)
             
-            HStack {
-                Text("Today")
-                    .foregroundColor(Color(.systemGray))
-                    .font(.system(.body))
-                Spacer()
-                Text("$ 2.20")
-                    .foregroundColor(Color(.systemGray))
-                    .font(.system(.body))
-                    .onTapGesture {
-                        print("Log from pay list: ", paymentDataForView.first!)
-                    }
+            //            HStack {
+            //                Text("Today")
+            //                    .foregroundColor(Color(.systemGray))
+            //                    .font(.system(.body))
+            //                Spacer()
+            //                Text("$ 2.20")
+            //                    .foregroundColor(Color(.systemGray))
+            //                    .font(.system(.body))
+            //                    .onTapGesture {
+            //                        print("Log from pay list: ", paymentDataForView.first!)
+            //                    }
+            //            }
+            
+            
+            List {
+                ForEach(paymentDataForView, id: \.paymentId) { activity in
+                    NavigationLink(
+                        destination: PaymentActivityEdit(
+                            showEditView: $showEditView,
+                            selectedPayment: selectedPayment
+                        )) {
+                            Row(paymentActivity: activity)
+                        }
+                }
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                .contextMenu {
+                    Button(action: {
+                        print("Delete!!")
+                    }, label: {
+                        VStack {
+                            Text("Delete")
+                            Image(systemName: "trash")
+                        }
+                    })
+                }
             }
-            ForEach(paymentDataForView) { activity in
-                Row(paymentActivity: activity)
-                    .onTapGesture {
-                        showEditView.toggle()
-                        selectedPayment = activity
-                    }
-            }
+            .listStyle(.plain)
         }
     }
 }

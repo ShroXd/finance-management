@@ -23,13 +23,14 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            InboxView(paymentDataForView: paymentDataForView)
+            NavigationStack {
+                InboxView(paymentDataForView: paymentDataForView)
+            }
                 .tabItem {
                     Image(systemName: "tray.fill")
                 }
             
-            Text("Statistics Tab")
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+            StatisticsView()
                 .tabItem {
                     Image(systemName: "chart.bar.fill")
                 }
@@ -57,19 +58,17 @@ struct InboxView: View {
     
     var body: some View {
         VStack {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 32) {
-                    InboxHeader(showEditView: $showEditView)
-                    CalendarMap()
-                    PaymentActivityList(
-                        showEditView: $showEditView,
-                        selectedPayment: $selectedPayment,
-                        paymentDataForView: paymentDataForView
-                    )
-                    .padding(.bottom, 56)
-                    // TODO: ask load more?
-                }
+            VStack(spacing: 32) {
+                InboxHeader(showEditView: $showEditView)
+                PaymentActivityList(
+                    showEditView: $showEditView,
+                    selectedPayment: $selectedPayment,
+                    paymentDataForView: paymentDataForView
+                )
+                .padding(.bottom, 56)
+                // TODO: ask load more?
             }
+            
             
             Spacer()
         }
@@ -82,5 +81,16 @@ struct InboxView: View {
                 selectedPayment: selectedPayment
             )
         }
+    }
+}
+
+struct StatisticsView: View {
+    
+    var body: some View {
+        VStack {
+            CalendarMap()
+            Spacer()
+        }
+        .padding(.horizontal, 22)
     }
 }
