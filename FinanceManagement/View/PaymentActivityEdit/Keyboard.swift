@@ -15,17 +15,15 @@ struct Keyboard: View {
             KeyRow(first: "1", second: "2", third: "3")
             
             HStack {
-                Image(systemName: "delete.left")
-                    .font(.system(size: 22))
-                    .foregroundColor(Color(.systemGray3))
-                    .frame(width: 62)
+                Key(size: (22, 18), action: {}) { Text("Done").foregroundColor(Color("MainBlue")) }
                 Spacer()
-                Key(name: "0")
+                Key(action: {}) { Text("0") }
                 Spacer()
-                Text("Done")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(Color(.systemGray3))
-                    .frame(width: 64)
+                Key(size: (22, 18), action: {}) {
+                    Image(systemName: "delete.left")
+                        .foregroundColor(Color(.systemGray3))
+                        .frame(width: 62)
+                }
             }
         }
     }
@@ -37,32 +35,26 @@ struct Keyboard_Previews: PreviewProvider {
     }
 }
 
-private struct KeyStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(Color(.systemGray3))
-            .frame(width: 62, height: 52)
-    }
-}
-
 private struct KeyBuilder<Content: View>: View {
-    let content: Content
-    let fn: () -> Void
-    
     @Binding var keyClicked: Bool
     
-    init(action: @escaping () -> Void, @ViewBuilder content: () -> Content, keyClicked: Binding<Bool>) {
+    let size: (CGFloat, CGFloat)
+    let fn: () -> Void
+    let content: Content
+    
+    init(keyClicked: Binding<Bool>, size: (CGFloat, CGFloat), action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
+        self._keyClicked = keyClicked
+        self.size = size
         self.fn = action
         self.content = content()
-        self._keyClicked = keyClicked
     }
     
     var body: some View {
-        Button(action: {
-            fn()
-            keyEffect()
-        }, label: { content })
-            .buttonStyle(KeyStyle())
+        Button(
+            action: { fn(); keyEffect() },
+            label: { content.font(.system(size: keyClicked ? size.0 : size.1)) }
+        )
+        .buttonStyle(KeyStyle())
     }
     
     private func keyEffect() {
@@ -78,23 +70,35 @@ private struct KeyBuilder<Content: View>: View {
             }
         }
     }
+    
+    private struct KeyStyle: ButtonStyle {
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .foregroundColor(Color(.systemGray3))
+                .frame(width: 62, height: 52)
+        }
+    }
 }
 
-private struct Key: View {
+private struct Key<Content: View>: View {
     @State private var keyClicked = false
     
-    var name: String
+    let size: (CGFloat, CGFloat)
+    let action: () -> Void
+    let content: Content
+    
+    init(size: (CGFloat, CGFloat) = (32, 24), action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
+        self.size = size
+        self.action = action
+        self.content = content()
+    }
     
     var body: some View {
         KeyBuilder(
-            action: keyAction,
-            content: { Text(name).font(.system(size: keyClicked ? 32 : 24)) },
-            keyClicked: $keyClicked
-        )
-    }
-    
-    private func keyAction() {
-        print(Date())
+            keyClicked: $keyClicked,
+            size: size,
+            action: action
+        ) { content }
     }
 }
 
@@ -105,11 +109,15 @@ private struct KeyRow: View {
     
     var body: some View {
         HStack {
-            Key(name: first)
+            Key(action: keyAction) { Text(first) }
             Spacer()
-            Key(name: second)
+            Key(action: keyAction) { Text(second) }
             Spacer()
-            Key(name: third)
+            Key(action: keyAction) { Text(third) }
         }
+    }
+    
+    private func keyAction() {
+        print(Date())
     }
 }
