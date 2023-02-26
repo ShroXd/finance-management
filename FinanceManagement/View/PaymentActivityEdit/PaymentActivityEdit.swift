@@ -19,6 +19,8 @@ struct PaymentActivityEdit: View {
     @Binding var showEditView: Bool
     @State var selectedPayment: PaymentActivity?
     
+    @State var testShake: Bool = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -26,8 +28,11 @@ struct PaymentActivityEdit: View {
                 Text("$")
                     .font(.system(size: 28, design: .monospaced))
                     .foregroundColor(Color(.systemGray3))
-                Text("950.00")
+                Text(testShake ? "950.00" : "0.00")
                     .font(.system(size: 52, design: .monospaced))
+            }
+            .onShakeGesture {
+                self.testShake.toggle()
             }
             Spacer()
             Divider()

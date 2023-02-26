@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		925D4B7929ABA2F0005EAC40 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D4B7829ABA2F0005EAC40 /* View.swift */; };
 		92AA58F929AB22860065617E /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA58F829AB22860065617E /* Keyboard.swift */; };
 		92AA58FB29AB56CE0065617E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA58FA29AB56CE0065617E /* Button.swift */; };
 		92AD698629A8CE250079B54B /* PaymentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AD698529A8CE250079B54B /* PaymentActivity.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		925D4B7829ABA2F0005EAC40 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		92AA58F829AB22860065617E /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		92AA58FA29AB56CE0065617E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		92AD698529A8CE250079B54B /* PaymentActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentActivity.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				92BD08AE29A36BCC00BAFEC7 /* Date.swift */,
 				92BD08B329A6492C00BAFEC7 /* Money.swift */,
 				92AA58FA29AB56CE0065617E /* Button.swift */,
+				925D4B7829ABA2F0005EAC40 /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				92BD08A6299E5EB100BAFEC7 /* ContentView.swift in Sources */,
 				92DC64AB29A9CF3E00EE07C3 /* SectionTitle.swift in Sources */,
 				92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */,
+				925D4B7929ABA2F0005EAC40 /* View.swift in Sources */,
 				92BD08C129A6590100BAFEC7 /* PaymentActivityEdit.swift in Sources */,
 				92AA58FB29AB56CE0065617E /* Button.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,
