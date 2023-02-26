@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92AA58F929AB22860065617E /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA58F829AB22860065617E /* Keyboard.swift */; };
+		92AA58FB29AB56CE0065617E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA58FA29AB56CE0065617E /* Button.swift */; };
 		92AD698629A8CE250079B54B /* PaymentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AD698529A8CE250079B54B /* PaymentActivity.swift */; };
 		92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */; };
 		92BD0873299E3E2400BAFEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BD0872299E3E2400BAFEC7 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92AA58F829AB22860065617E /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		92AA58FA29AB56CE0065617E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		92AD698529A8CE250079B54B /* PaymentActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentActivity.swift; sourceTree = "<group>"; };
 		92BD086B299E3E2300BAFEC7 /* FinanceManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceManagementApp.swift; sourceTree = "<group>"; };
@@ -124,8 +128,8 @@
 			children = (
 				92BD08B529A6527500BAFEC7 /* Type */,
 				92BD08AD29A36BBB00BAFEC7 /* Extension */,
-				92BD089D299E419800BAFEC7 /* View */,
 				92E77C9B29A89470009E378C /* Model */,
+				92BD089D299E419800BAFEC7 /* View */,
 				92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */,
 				92BD0872299E3E2400BAFEC7 /* Assets.xcassets */,
 				92BD0879299E3E2400BAFEC7 /* FinanceManagement.xcdatamodeld */,
@@ -177,6 +181,7 @@
 			children = (
 				92BD08AE29A36BCC00BAFEC7 /* Date.swift */,
 				92BD08B329A6492C00BAFEC7 /* Money.swift */,
+				92AA58FA29AB56CE0065617E /* Button.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				92BD08C029A6590100BAFEC7 /* PaymentActivityEdit.swift */,
+				92AA58F829AB22860065617E /* Keyboard.swift */,
 			);
 			path = PaymentActivityEdit;
 			sourceTree = "<group>";
@@ -378,12 +384,14 @@
 				92DC64AB29A9CF3E00EE07C3 /* SectionTitle.swift in Sources */,
 				92BD08BF29A6548000BAFEC7 /* InboxHeader.swift in Sources */,
 				92BD08C129A6590100BAFEC7 /* PaymentActivityEdit.swift in Sources */,
+				92AA58FB29AB56CE0065617E /* Button.swift in Sources */,
 				92BD086F299E3E2300BAFEC7 /* FinanceManagementApp.swift in Sources */,
 				92BD08B929A653CF00BAFEC7 /* CalendarMap.swift in Sources */,
 				92BD08AC29A1AE8100BAFEC7 /* HeatMap.swift in Sources */,
 				92BD087B299E3E2400BAFEC7 /* FinanceManagement.xcdatamodeld in Sources */,
 				92BD08B229A6486700BAFEC7 /* Summation.swift in Sources */,
 				92BD08B729A6528A00BAFEC7 /* Color.swift in Sources */,
+				92AA58F929AB22860065617E /* Keyboard.swift in Sources */,
 				92BD08A2299E530F00BAFEC7 /* PaymentActivityList.swift in Sources */,
 				92BD08AF29A36BCC00BAFEC7 /* Date.swift in Sources */,
 				92BD08A4299E582B00BAFEC7 /* Row.swift in Sources */,
