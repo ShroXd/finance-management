@@ -22,6 +22,14 @@ struct PaymentActivityEdit: View {
     var body: some View {
         VStack {
             Spacer()
+            HStack(alignment: .center) {
+                Text("$")
+                    .font(.system(size: 28, design: .monospaced))
+                    .foregroundColor(Color(.systemGray3))
+                Text("950.00")
+                    .font(.system(size: 52, design: .monospaced))
+            }
+            Spacer()
             Divider()
             Keyboard()
                 .padding(.bottom, 42)
