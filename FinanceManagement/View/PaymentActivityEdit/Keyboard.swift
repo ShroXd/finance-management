@@ -7,25 +7,38 @@
 
 import SwiftUI
 
+// Shake clean up
+
 struct Keyboard: View {
     
     @EnvironmentObject var viewModel: PaymentEditViewModel
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    let numberOrder = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "Done", "0", "Delete"]
+    
     var body: some View {
-        VStack {
-            KeyRow(first: "7", second: "8", third: "9")
-            KeyRow(first: "4", second: "5", third: "6")
-            KeyRow(first: "1", second: "2", third: "3")
-            
-            HStack {
-                Key(size: (22, 18), action: {}) { Text("Done").foregroundColor(Color("MainBlue")) }
-                Spacer()
-                Key(action: { viewModel.numberButtonTapped("1") }) { Text("0") }
-                Spacer()
-                Key(size: (22, 18), action: {}) {
-                    Image(systemName: "delete.left")
-                        .foregroundColor(Color(.systemGray3))
-                        .frame(width: 62)
+        LazyVGrid(columns: columns) {
+            ForEach(numberOrder, id: \.self) { number in
+                switch number {
+                case "Done":
+                    KeyBuilder(size: (22, 18), action: {}) {
+                        Text("Done").foregroundColor(Color("MainBlue"))
+                    }
+                case "Delete":
+                    KeyBuilder(size: (22, 18), action: {}) {
+                        Image(systemName: "delete.left")
+                            .foregroundColor(Color(.systemGray3))
+                            .frame(width: 62)
+                    }
+                default:
+                    KeyBuilder(action: {}) {
+                        Text("\(number)")
+                    }
                 }
             }
         }
@@ -39,14 +52,13 @@ struct Keyboard_Previews: PreviewProvider {
 }
 
 private struct KeyBuilder<Content: View>: View {
-    @Binding var keyClicked: Bool
+    @State private var keyClicked = false
     
     let size: (CGFloat, CGFloat)
     let fn: () -> Void
     let content: Content
     
-    init(keyClicked: Binding<Bool>, size: (CGFloat, CGFloat), action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
-        self._keyClicked = keyClicked
+    init(size: (CGFloat, CGFloat) = (32, 24), action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
         self.size = size
         self.fn = action
         self.content = content()
@@ -80,47 +92,5 @@ private struct KeyBuilder<Content: View>: View {
                 .foregroundColor(Color(.systemGray3))
                 .frame(width: 62, height: 52)
         }
-    }
-}
-
-private struct Key<Content: View>: View {
-    @State private var keyClicked = false
-    
-    let size: (CGFloat, CGFloat)
-    let action: () -> Void
-    let content: Content
-    
-    init(size: (CGFloat, CGFloat) = (32, 24), action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
-        self.size = size
-        self.action = action
-        self.content = content()
-    }
-    
-    var body: some View {
-        KeyBuilder(
-            keyClicked: $keyClicked,
-            size: size,
-            action: action
-        ) { content }
-    }
-}
-
-private struct KeyRow: View {
-    var first: String
-    var second: String
-    var third: String
-    
-    var body: some View {
-        HStack {
-            Key(action: keyAction) { Text(first) }
-            Spacer()
-            Key(action: keyAction) { Text(second) }
-            Spacer()
-            Key(action: keyAction) { Text(third) }
-        }
-    }
-    
-    private func keyAction() {
-        print(Date())
     }
 }
