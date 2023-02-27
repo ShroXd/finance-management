@@ -26,17 +26,23 @@ struct Keyboard: View {
             ForEach(numberOrder, id: \.self) { number in
                 switch number {
                 case "Done":
-                    KeyBuilder(size: (22, 18), action: {}) {
+                    KeyBuilder(size: (22, 18), action: {
+                        // Save it!
+                    }) {
                         Text("Done").foregroundColor(Color("MainBlue"))
                     }
                 case "Delete":
-                    KeyBuilder(size: (22, 18), action: {}) {
+                    KeyBuilder(size: (22, 18), action: {
+                        viewModel.deleteButtonTapped()
+                    }) {
                         Image(systemName: "delete.left")
                             .foregroundColor(Color(.systemGray3))
                             .frame(width: 62)
                     }
                 default:
-                    KeyBuilder(action: {}) {
+                    KeyBuilder(action: {
+                        viewModel.numberButtonTapped("\(number)")
+                    }) {
                         Text("\(number)")
                     }
                 }

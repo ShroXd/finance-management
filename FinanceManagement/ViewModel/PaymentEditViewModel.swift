@@ -10,21 +10,39 @@ import Combine
 
 class PaymentEditViewModel: ObservableObject {
     
-    @Published var inputText = "0.00"
+    @Published var amount = ""
+    
+    var amountArray: [Int]? = [] {
+        didSet {
+            if let intArray = amountArray {
+                for (index, element) in intArray.enumerated() {
+                    if index == 1 {
+                        amount += "\(element)."
+                    } else {
+                        amount += "\(element)"
+                    }
+                }
+            }
+        }
+    }
     
     private var cancellables = Set<AnyCancellable>()
     
     func numberButtonTapped(_ number: String) {
-        inputText += number
+        if amountArray == nil {
+            amountArray = [Int(number)!]
+        } else {
+            amountArray!.append(Int(number)!)
+        }
     }
     
     func clearButtonTapped() {
-        inputText = ""
+//        amount = ""
     }
     
     func deleteButtonTapped() {
-        if !inputText.isEmpty {
-            inputText.removeLast()
-        }
+//        if !amount.isEmpty {
+//            amount.removeLast()
+//        }
     }
 }
