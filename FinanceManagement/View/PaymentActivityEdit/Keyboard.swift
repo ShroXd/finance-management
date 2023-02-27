@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Keyboard: View {
+    
+    @EnvironmentObject var viewModel: PaymentEditViewModel
+    
     var body: some View {
         VStack {
             KeyRow(first: "7", second: "8", third: "9")
@@ -17,7 +20,7 @@ struct Keyboard: View {
             HStack {
                 Key(size: (22, 18), action: {}) { Text("Done").foregroundColor(Color("MainBlue")) }
                 Spacer()
-                Key(action: {}) { Text("0") }
+                Key(action: { viewModel.numberButtonTapped("1") }) { Text("0") }
                 Spacer()
                 Key(size: (22, 18), action: {}) {
                     Image(systemName: "delete.left")

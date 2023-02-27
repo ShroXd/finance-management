@@ -21,6 +21,9 @@ struct PaymentActivityEdit: View {
     
     @State var testShake: Bool = false
     
+    @State private var inputText = ""
+    @StateObject private var paymentEditViewModel = PaymentEditViewModel()
+    
     var body: some View {
         VStack {
             Spacer()
@@ -28,7 +31,9 @@ struct PaymentActivityEdit: View {
                 Text("$")
                     .font(.system(size: 28, design: .monospaced))
                     .foregroundColor(Color(.systemGray3))
-                Text(testShake ? "950.00" : "0.00")
+//                Text(testShake ? "950.00" : "0.00")
+//                    .font(.system(size: 52, design: .monospaced))
+                Text(paymentEditViewModel.inputText)
                     .font(.system(size: 52, design: .monospaced))
             }
             .onShakeGesture {
@@ -38,6 +43,7 @@ struct PaymentActivityEdit: View {
             Divider()
             Keyboard()
                 .padding(.bottom, 42)
+                .environmentObject(paymentEditViewModel)
         }
         .padding(.horizontal, 34)
     }
