@@ -130,7 +130,7 @@
 			children = (
 				92BD08B529A6527500BAFEC7 /* Type */,
 				92BD08AD29A36BBB00BAFEC7 /* Extension */,
-				92E77C9B29A89470009E378C /* Model */,
+				92E77C9B29A89470009E378C /* DataModel */,
 				92BD089D299E419800BAFEC7 /* View */,
 				92BD086E299E3E2300BAFEC7 /* FinanceManagementApp.swift */,
 				92BD0872299E3E2400BAFEC7 /* Assets.xcassets */,
@@ -241,13 +241,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		92E77C9B29A89470009E378C /* Model */ = {
+		92E77C9B29A89470009E378C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				92AD698529A8CE250079B54B /* PaymentActivity.swift */,
 				92BD0877299E3E2400BAFEC7 /* Persistence.swift */,
 			);
-			path = Model;
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
