@@ -24,12 +24,19 @@ struct PaymentActivityEdit: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack(alignment: .center) {
+            HStack(alignment: .firstTextBaseline) {
                 Text("$")
-                    .font(.system(size: 28, design: .monospaced))
-                    .foregroundColor(Color(.systemGray3))
-                Text(paymentEditViewModel.amount)
                     .font(.system(size: 52, design: .monospaced))
+                Text(paymentEditViewModel.amount.split(separator: ".")[0])
+                    .font(.system(size: 52, design: .monospaced))
+                Text(".")
+                    .font(.system(size: 32, design: .monospaced))
+                    .padding(.horizontal, -12)
+                    .foregroundColor(Color(.systemGray2))
+                Text(paymentEditViewModel.amount.split(separator: ".")[1])
+                    .font(.system(size: 32, design: .monospaced))
+                    .foregroundColor(Color(.systemGray2))
+
             }
             .onShakeGesture {
                 paymentEditViewModel.clearButtonTapped()

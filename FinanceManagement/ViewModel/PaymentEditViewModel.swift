@@ -20,6 +20,7 @@ class PaymentEditViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     func numberButtonTapped(_ number: String) {
+        if amount.count >= 10 { return }
         amountNumber = amountNumber * 10 + (Double(number) ?? 0.00) / 100
     }
     
