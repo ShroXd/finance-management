@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PaymentActivityList: View {
+struct PaymentListView: View {
     @Binding var showEditView: Bool
     @Binding var selectedPayment: PaymentActivity?
     
@@ -64,7 +64,7 @@ struct PayList_Previews: PreviewProvider {
         testTrans.amount = 12.34
         testTrans.type = .expense
         
-        return PaymentActivityList(showEditView: .constant(false), selectedPayment: .constant(nil), paymentDataForView: [testTrans])
+        return PaymentListView(showEditView: .constant(false), selectedPayment: .constant(nil), paymentDataForView: [testTrans])
     }
 }
 
@@ -76,7 +76,7 @@ struct NavigatableRow: View {
     var body: some View {
         ZStack {
             NavigationLink(
-                destination: PaymentActivityEdit(
+                destination: PaymentEditView(
                     showEditView: $showEditView,
                     selectedPayment: selectedPayment
                 ).toolbar(.hidden, for: .tabBar)) {

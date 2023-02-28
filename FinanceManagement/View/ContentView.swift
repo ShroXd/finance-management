@@ -60,7 +60,7 @@ struct InboxView: View {
         VStack {
             VStack(spacing: 32) {
                 InboxHeader(showEditView: $showEditView)
-                PaymentActivityList(
+                PaymentListView(
                     showEditView: $showEditView,
                     selectedPayment: $selectedPayment,
                     paymentDataForView: paymentDataForView
@@ -76,7 +76,7 @@ struct InboxView: View {
         .padding(.top, 62)
         .ignoresSafeArea()
         .sheet(isPresented: $showEditView) {
-            PaymentActivityEdit(
+            PaymentEditView(
                 showEditView: $showEditView,
                 selectedPayment: selectedPayment
             )

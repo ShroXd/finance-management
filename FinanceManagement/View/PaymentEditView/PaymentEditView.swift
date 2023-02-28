@@ -13,7 +13,7 @@ struct Expense {
     var date: Date
 }
 
-struct PaymentActivityEdit: View {
+struct PaymentEditView: View {
     @Environment(\.managedObjectContext) var context
     
     @Binding var showEditView: Bool
@@ -69,7 +69,7 @@ struct PaymentActivityEdit: View {
 
 struct EditExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentActivityEdit(
+        PaymentEditView(
             showEditView: .constant(false),
             selectedPayment: nil
         )
